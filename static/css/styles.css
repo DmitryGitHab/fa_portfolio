@@ -1,3 +1,21 @@
+/* Основные переменные */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #2d3436;
+    --primary-color: #0984e3;
+    --hover-color: #74b9ff;
+    --border-color: #ddd;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+/* Темная тема */
+body.dark-theme {
+    --bg-color: #2d3436;
+    --text-color: #dfe6e9;
+    --primary-color: #74b9ff;
+    --hover-color: #0984e3;
+    --border-color: #444;
+}
+
 /* Основные стили */
 body {
     font-family: 'Roboto', sans-serif;
@@ -5,18 +23,18 @@ body {
     padding: 0;
     background: linear-gradient(135deg, #f4f4f9, #e0e0f8);
     min-height: 100vh;
-    color: #333;
-    transition: background 0.3s ease, color 0.3s ease;
+    color: var(--text-color);
+    transition: background var(--transition), color var(--transition);
 }
 
 /* Шапка */
 header {
-    background-color: #6200ea;
+    background-color: var(--primary-color);
     color: white;
     padding: 20px 0;
     text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease;
+    box-shadow: var(--shadow);
+    transition: background-color var(--transition);
 }
 
 .header-content {
@@ -33,7 +51,7 @@ header {
     border: 3px solid white;
     object-fit: cover;
     animation: fadeIn 1s ease-out;
-    transition: transform 0.3s ease, border-color 0.3s ease;
+    transition: transform var(--transition), border-color var(--transition);
 }
 
 .profile-photo:hover {
@@ -48,18 +66,18 @@ h1 {
 
 /* Стили для формы редактирования проектов */
 .project-edit {
-    background: white;
+    background: var(--bg-color);
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow);
     margin-top: 20px;
-    transition: background 0.3s ease, color 0.3s ease;
+    transition: background var(--transition), color var(--transition);
 }
 
 .project-edit h3 {
     font-size: 1.5rem;
     margin-bottom: 15px;
-    color: #6200ea;
+    color: var(--primary-color);
 }
 
 .project-edit form {
@@ -71,31 +89,31 @@ h1 {
 .project-edit input,
 .project-edit textarea {
     padding: 10px;
-    border: 1px solid #ddd;
+    border: 1px solid var(--border-color);
     border-radius: 4px;
     font-size: 1rem;
-    transition: border-color 0.3s ease;
+    transition: border-color var(--transition);
 }
 
 .project-edit input:focus,
 .project-edit textarea:focus {
-    border-color: #6200ea;
+    border-color: var(--primary-color);
     outline: none;
 }
 
 .project-edit button {
     padding: 10px;
-    background-color: #6200ea;
+    background-color: var(--primary-color);
     color: white;
     border: none;
     border-radius: 4px;
     font-size: 1rem;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    transition: background-color var(--transition), transform var(--transition);
 }
 
 .project-edit button:hover {
-    background-color: #3700b3;
+    background-color: var(--hover-color);
     transform: translateY(-2px);
 }
 
@@ -105,18 +123,18 @@ h1 {
 
 /* Стили для секций авторизации, регистрации и добавления проекта */
 #login-section, #register-section, #add-project-section {
-    background: white;
+    background: var(--bg-color);
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow);
     margin-bottom: 20px;
-    transition: background 0.3s ease, color 0.3s ease;
+    transition: background var(--transition), color var(--transition);
 }
 
 #login-section h2, #register-section h2, #add-project-section h2 {
     font-size: 1.8rem;
     margin-bottom: 20px;
-    color: #6200ea;
+    color: var(--primary-color);
 }
 
 #login-form, #register-form, #add-project-form {
@@ -128,31 +146,31 @@ h1 {
 #login-form input, #register-form input, #add-project-form input,
 #login-form textarea, #register-form textarea, #add-project-form textarea {
     padding: 10px;
-    border: 1px solid #ddd;
+    border: 1px solid var(--border-color);
     border-radius: 4px;
     font-size: 1rem;
-    transition: border-color 0.3s ease;
+    transition: border-color var(--transition);
 }
 
 #login-form input:focus, #register-form input:focus, #add-project-form input:focus,
 #login-form textarea:focus, #register-form textarea:focus, #add-project-form textarea:focus {
-    border-color: #6200ea;
+    border-color: var(--primary-color);
     outline: none;
 }
 
 #login-form button, #register-form button, #add-project-form button {
     padding: 10px;
-    background-color: #6200ea;
+    background-color: var(--primary-color);
     color: white;
     border: none;
     border-radius: 4px;
     font-size: 1rem;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    transition: background-color var(--transition), transform var(--transition);
 }
 
 #login-form button:hover, #register-form button:hover, #add-project-form button:hover {
-    background-color: #3700b3;
+    background-color: var(--hover-color);
     transform: translateY(-2px);
 }
 
@@ -164,8 +182,8 @@ h1 {
 body.dark-theme #login-section,
 body.dark-theme #register-section,
 body.dark-theme #add-project-section {
-    background-color: #2c2c2c;
-    color: #ffffff;
+    background-color: var(--bg-color);
+    color: var(--text-color);
 }
 
 body.dark-theme #login-form input,
@@ -175,8 +193,8 @@ body.dark-theme #login-form textarea,
 body.dark-theme #register-form textarea,
 body.dark-theme #add-project-form textarea {
     background-color: #1e1e1e;
-    color: #ffffff;
-    border-color: #444;
+    color: var(--text-color);
+    border-color: var(--border-color);
 }
 
 body.dark-theme #login-form input:focus,
@@ -185,9 +203,8 @@ body.dark-theme #add-project-form input:focus,
 body.dark-theme #login-form textarea:focus,
 body.dark-theme #register-form textarea:focus,
 body.dark-theme #add-project-form textarea:focus {
-    border-color: #bb86fc;
+    border-color: var(--primary-color);
 }
-
 
 /* Анимации для текста */
 section p {
@@ -225,20 +242,20 @@ section p:nth-child(4) {
 
 /* Тёмная тема для формы редактирования */
 body.dark-theme .project-edit {
-    background-color: #2c2c2c;
-    color: #ffffff;
+    background-color: var(--bg-color);
+    color: var(--text-color);
 }
 
 body.dark-theme .project-edit input,
 body.dark-theme .project-edit textarea {
     background-color: #1e1e1e;
-    color: #ffffff;
-    border-color: #444;
+    color: var(--text-color);
+    border-color: var(--border-color);
 }
 
 body.dark-theme .project-edit input:focus,
 body.dark-theme .project-edit textarea:focus {
-    border-color: #bb86fc;
+    border-color: var(--primary-color);
 }
 
 /* Анимации для форм */
@@ -281,7 +298,7 @@ body.dark-theme .project-edit textarea:focus {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #ccc;
+    background-color: #ccc; /* Цвет фона ползунка в светлой теме */
     transition: 0.4s;
     border-radius: 34px;
 }
@@ -298,8 +315,25 @@ body.dark-theme .project-edit textarea:focus {
     border-radius: 50%;
 }
 
+/* Стили для темной темы */
+body.dark-theme .slider {
+    background-color: #555; /* Цвет фона ползунка в темной теме */
+}
+
+body.dark-theme .slider:before {
+    background-color: #ffffff;
+}
+
 input:checked + .slider {
-    background-color: #6200ea;
+    background-color: var(--primary-color); /* Используем акцентный цвет */
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+input:checked + .slider {
+    background-color: #555;
 }
 
 input:checked + .slider:before {
@@ -311,16 +345,16 @@ section {
     padding: 20px;
     max-width: 1200px;
     margin: 0 auto;
-    background: white;
+    background: var(--bg-color);
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: background 0.3s ease, color 0.3s ease;
+    box-shadow: var(--shadow);
+    transition: background var(--transition), color var(--transition);
 }
 
 h2 {
     font-size: 2rem;
     margin-bottom: 20px;
-    color: #6200ea;
+    color: var(--primary-color);
     animation: slideIn 0.8s ease-out;
 }
 
@@ -334,11 +368,11 @@ h2 {
 }
 
 #projects-list li {
-    background: white;
+    background: var(--bg-color);
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow);
     overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform var(--transition), box-shadow var(--transition);
     opacity: 0;
     transform: translateY(20px);
     animation: fadeIn 0.5s ease-out forwards;
@@ -353,7 +387,7 @@ h2 {
     width: 100%;
     height: 200px;
     object-fit: cover;
-    transition: transform 0.3s ease, filter 0.3s ease;
+    transition: transform var(--transition), filter var(--transition);
 }
 
 #projects-list img:hover {
@@ -364,25 +398,25 @@ h2 {
 #projects-list h3 {
     font-size: 1.5rem;
     margin: 15px;
-    color: #6200ea;
+    color: var(--primary-color);
 }
 
 #projects-list p {
     margin: 0 15px 15px;
-    color: #555;
+    color: var(--text-color);
 }
 
 #projects-list a {
     display: inline-block;
     margin: 0 15px 15px;
-    color: #6200ea;
+    color: var(--primary-color);
     text-decoration: none;
     font-weight: bold;
-    transition: color 0.3s ease;
+    transition: color var(--transition);
 }
 
 #projects-list a:hover {
-    color: #3700b3;
+    color: var(--hover-color);
     text-decoration: underline;
 }
 
@@ -390,18 +424,18 @@ h2 {
     margin: 10px;
     padding: 8px 12px;
     font-size: 0.9rem;
-    background-color: #6200ea;
+    background-color: var(--primary-color);
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    transition: background-color var(--transition), transform var(--transition);
     width: calc(100% - 20px);
     box-sizing: border-box;
 }
 
 #projects-list button:hover {
-    background-color: #3700b3;
+    background-color: var(--hover-color);
     transform: translateY(-2px);
 }
 
@@ -425,28 +459,28 @@ h2 {
 }
 
 #contacts-list a {
-    color: #6200ea;
+    color: var(--primary-color);
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: color var(--transition);
 }
 
 #contacts-list a:hover {
-    color: #3700b3;
+    color: var(--hover-color);
     text-decoration: underline;
 }
 
 /* Секция "Обо мне" */
 .skills {
-    background: white;
+    background: var(--bg-color);
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow);
     margin-top: 20px;
 }
 
 .skills h3 {
     font-size: 1.5rem;
-    color: #6200ea;
+    color: var(--primary-color);
     margin-bottom: 15px;
 }
 
@@ -459,78 +493,19 @@ h2 {
 }
 
 .skills li {
-    background: #f4f4f9;
+    background: var(--bg-color);
     padding: 10px;
     border-radius: 4px;
     text-align: center;
     font-weight: bold;
-    color: #333;
-    transition: transform 0.3s ease, background 0.3s ease;
+    color: var(--text-color);
+    border: 1px solid var(--primary-color); /* Добавим границу */
+    transition: transform var(--transition), background var(--transition);
 }
 
 .skills li:hover {
     transform: translateY(-5px);
-    background: #6200ea;
-    color: white;
-}
-
-/* Тёмная тема */
-body.dark-theme {
-    background-color: #121212;
-    color: #ffffff;
-}
-
-body.dark-theme header {
-    background-color: #1e1e1e;
-}
-
-body.dark-theme section {
-    background-color: #1e1e1e;
-    color: #ffffff;
-}
-
-body.dark-theme #projects-list li {
-    background-color: #2c2c2c;
-    color: #ffffff;
-}
-
-body.dark-theme #projects-list a {
-    color: #bb86fc;
-}
-
-body.dark-theme #projects-list button {
-    background-color: #bb86fc;
-    color: #000000;
-}
-
-body.dark-theme #projects-list button:hover {
-    background-color: #3700b3;
-}
-
-body.dark-theme #contacts-list a {
-    color: #bb86fc;
-}
-
-body.dark-theme #contacts-list a:hover {
-    color: #3700b3;
-}
-
-body.dark-theme .profile-photo {
-    border-color: #bb86fc;
-}
-
-body.dark-theme .skills {
-    background-color: #2c2c2c;
-    color: #ffffff;
-}
-
-body.dark-theme .skills li {
-    background-color: #1e1e1e;
-    color: #ffffff;
-}
-
-body.dark-theme .skills li:hover {
-    background-color: #6200ea;
+    background: var(--primary-color);
     color: white;
 }
 
@@ -557,6 +532,43 @@ body.dark-theme .skills li:hover {
     }
 }
 
+.file-input-container input[type="file"] {
+    display: none;
+}
+
+.custom-file-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color var(--transition), transform var(--transition);
+}
+
+.custom-file-button:hover {
+    background-color: var(--hover-color);
+    transform: translateY(-2px);
+}
+
+.custom-file-button:active {
+    transform: scale(0.95);
+}
+
+.button-icon {
+    margin-left: 8px;
+    font-size: 1.2rem;
+}
+
+.file-name {
+    margin-left: 10px;
+    font-size: 0.9rem;
+    color: var(--text-color);
+}
 /* Адаптивный дизайн */
 @media (max-width: 768px) {
     .header-content {
@@ -584,9 +596,7 @@ body.dark-theme .skills li:hover {
     .skills ul {
         grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
     }
-}
 
-@media (max-width: 768px) {
     #login-section, #register-section, #add-project-section, .project-edit {
         padding: 15px;
     }

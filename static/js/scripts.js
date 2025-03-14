@@ -60,6 +60,10 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
+    document.getElementById('project-image').addEventListener('change', function (e) {
+    const fileName = e.target.files[0] ? e.target.files[0].name : 'Файл не выбран';
+    document.querySelector('.file-name').textContent = fileName;
+    });
     // Обработка регистрации
     // registerForm.addEventListener("submit", async function (event) {
     //     event.preventDefault();

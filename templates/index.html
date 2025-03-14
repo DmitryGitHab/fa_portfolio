@@ -116,7 +116,15 @@
         <input type="text" id="project-name" placeholder="Название проекта" required>
         <textarea id="project-description" placeholder="Описание проекта" required></textarea>
         <input type="text" id="project-github-link" placeholder="Ссылка на GitHub" required>
+<!--        <input type="file" id="project-image" accept="image/*" required>-->
+        <div class="file-input-container">
         <input type="file" id="project-image" accept="image/*" required>
+        <label for="project-image" class="custom-file-button">
+            <span class="button-text">Выберите файл</span>
+            <span class="button-icon">📁</span>
+        </label>
+            <span class="file-name">Файл не выбран</span>
+         </div>
         <button type="submit">Добавить проект</button>
     </form>
 </section>
