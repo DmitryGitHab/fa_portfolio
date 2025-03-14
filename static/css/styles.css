@@ -1,6 +1,6 @@
 /* Основные стили */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
     background: linear-gradient(135deg, #f4f4f9, #e0e0f8);
@@ -49,6 +49,7 @@ input, textarea, button {
     border: 1px solid #ddd;
     border-radius: 4px;
     font-size: 1rem;
+    box-sizing: border-box; /* Убедимся, что padding не увеличивает размер */
 }
 
 button {
@@ -56,15 +57,18 @@ button {
     color: white;
     border: none;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-size: 0.9rem;
+    padding: 8px 12px; /* Уменьшим padding */
 }
 
 button:hover {
     background-color: #3700b3;
+    transform: translateY(-2px);
 }
 
 button:active {
-    transform: scale(0.95);
+    transform: translateY(0);
 }
 
 /* Стили для списка проектов */
@@ -207,6 +211,10 @@ h1, h2, h3 {
     animation: slideIn 0.8s ease-out;
 }
 
+* {
+    transition: all 0.3s ease;
+}
+
 /* Адаптивный дизайн */
 @media (max-width: 768px) {
     #projects-list {
@@ -215,5 +223,9 @@ h1, h2, h3 {
 
     .skills ul {
         grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+
+    input, textarea, button {
+        font-size: 0.9rem; /* Уменьшим размер шрифта на мобильных устройствах */
     }
 }
