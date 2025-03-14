@@ -1,0 +1,219 @@
+/* Основные стили */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #f4f4f9, #e0e0f8);
+    min-height: 100vh;
+    color: #333;
+}
+
+header {
+    background-color: #6200ea;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+section {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #6200ea;
+}
+
+/* Стили для формы */
+form {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+input, textarea, button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+button {
+    background-color: #6200ea;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #3700b3;
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+/* Стили для списка проектов */
+#projects-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 0;
+    list-style-type: none;
+}
+
+#projects-list li {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+#projects-list li:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+#projects-list img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+#projects-list h3 {
+    font-size: 1.5rem;
+    margin: 15px;
+    color: #6200ea;
+}
+
+#projects-list p {
+    margin: 0 15px 15px;
+    color: #555;
+}
+
+#projects-list a {
+    display: inline-block;
+    margin: 0 15px 15px;
+    color: #6200ea;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#projects-list a:hover {
+    text-decoration: underline;
+}
+
+#projects-list button {
+    margin: 0 10px 10px;
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    background-color: #6200ea;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#projects-list button:hover {
+    background-color: #3700b3;
+}
+
+#projects-list button:active {
+    transform: scale(0.95);
+}
+
+/* Стили для секции "Обо мне" */
+.skills {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.skills h3 {
+    font-size: 1.5rem;
+    color: #6200ea;
+    margin-bottom: 15px;
+}
+
+.skills ul {
+    list-style-type: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+}
+
+.skills li {
+    background: #f4f4f9;
+    padding: 10px;
+    border-radius: 4px;
+    text-align: center;
+    font-weight: bold;
+    color: #333;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.skills li:hover {
+    transform: translateY(-5px);
+    background: #6200ea;
+    color: white;
+}
+
+/* Анимации */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h1, h2, h3 {
+    animation: slideIn 0.8s ease-out;
+}
+
+/* Адаптивный дизайн */
+@media (max-width: 768px) {
+    #projects-list {
+        grid-template-columns: 1fr;
+    }
+
+    .skills ul {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+}
