@@ -4,21 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Портфолио Python разработчика</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="/static/css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
-        <h1>Дмитрий - Python разработчик</h1>
+        <div class="header-content">
+            <img src="/static/images/myphoto.jpg" alt="Фотография Дмитрия" class="profile-photo">
+            <h1>Дмитрий - Python разработчик</h1>
+        </div>
+        <label class="theme-switch">
+            <input type="checkbox" id="theme-toggle">
+            <span class="slider"></span>
+        </label>
     </header>
     <section>
         <h2>Обо мне</h2>
-        <p>
-            Я опытный Python-разработчик с глубокими знаниями в создании веб-приложений и API.
-            Мои проекты включают разработку высоконагруженных систем, интеграцию с базами данных
-            и автоматизацию процессов. Я всегда стремлюсь к написанию чистого, поддерживаемого
-            и эффективного кода.
-        </p>
+    <p id="about-me-text">
+        Я — опытный Python-разработчик. Моя специализация — создание веб-приложений и API с использованием современных технологий, таких как FastAPI, Django, Flask и SQLAlchemy, а так же десктоп-приложений на базе PyQT5. Я обладаю знаниями в области проектирования архитектуры, оптимизации производительности и работы с базами данных.
+    </p>
+    <p>
+        Я постоянно совершенствую свои навыки, изучая новые технологии и подходы.
+    </p>
+    <p>
+        Мои сильные стороны — это внимание к деталям, умение работать в команде и находить нестандартные решения сложных задач. Я всегда стремлюсь к написанию чистого, поддерживаемого и эффективного кода.
+    </p>
         <div class="skills">
             <h3>Мой стек технологий:</h3>
             <ul>
@@ -39,38 +51,75 @@
             </ul>
         </div>
     </section>
+    <section id="contacts-section">
+    <h2>Мои контакты</h2>
+    <ul id="contacts-list">
+        <li><strong>Телефон:</strong> <a href="tel:+79199496625">+7 (919) 949-66-25</a></li>
+        <li><strong>Почта:</strong> <a href="mailto:babanov91@gmail.com">babanov91@gmail.com</a></li>
+        <li><strong>Telegram:</strong> <a href="https://t.me/dmitrytmn" target="_blank">@dmitrytmn</a></li>
+        <li><strong>GitHub:</strong> <a href="https://github.com/DmitryGitHab" target="_blank">DmitryGitHab</a></li>
+    </ul>
+    </section>
     <section>
+
         <h2>Мои проекты</h2>
-        <ul id="projects-list">
-            <!-- Проекты будут загружены сюда через JavaScript -->
-        </ul>
+    <ul id="projects-list">
+        <!-- Пример проекта -->
+        <li data-project-id="1">
+            <div class="project-view">
+                <h3>Название проекта 1</h3>
+                <img src="static/images/image1.jpg" alt="Название проекта 1">
+                <p>Описание проекта 1</p>
+                <a href="https://github.com/project1" target="_blank">Ссылка на GitHub</a>
+                <button onclick="editProject(1)">Редактировать</button>
+                <button onclick="deleteProject(1)">Удалить</button>
+            </div>
+<div class="project-edit" id="edit-form-1" style="display: none;">
+    <h3>Редактирование проекта</h3>
+    <form onsubmit="saveProject(event, 1)">
+        <input type="text" id="edit-name-1" value="Название проекта" required>
+        <textarea id="edit-description-1" required>Описание проекта</textarea>
+        <input type="text" id="edit-github-link-1" value="Ссылка на GitHub" required>
+        <input type="file" id="edit-image-1" accept="image/*">
+        <button type="submit">Сохранить</button>
+        <button type="button" onclick="hideEditForm(1)">Отмена</button>
+    </form>
+</div>
+        </li>
+        <!-- Другие проекты -->
+    </ul>
     </section>
-    <section id="login-section">
-        <h2>Добавить проект</h2>
-        <form id="login-form">
-            <input type="text" id="username" placeholder="Имя пользователя" required>
-            <input type="password" id="password" placeholder="Пароль" required>
-            <button type="submit">Войти</button>
-        </form>
-    </section>
-    <section id="register-section">
-        <h2>Регистрация</h2>
-        <form id="register-form">
-            <input type="text" id="register-username" placeholder="Имя пользователя" required>
-            <input type="password" id="register-password" placeholder="Пароль" required>
-            <button type="submit">Зарегистрироваться</button>
-        </form>
-    </section>
-    <section id="add-project-section" style="display: none;">
-        <h2>Добавить новый проект</h2>
-        <form id="add-project-form">
-            <input type="text" id="project-name" placeholder="Название проекта" required>
-            <textarea id="project-description" placeholder="Описание проекта" required></textarea>
-            <input type="text" id="project-github-link" placeholder="Ссылка на GitHub" required>
-            <input type="file" id="project-image" accept="image/*" required>
-            <button type="submit">Добавить проект</button>
-        </form>
-    </section>
+<!-- Секция авторизации -->
+<section id="login-section">
+    <h2>Авторизация</h2>
+    <form id="login-form">
+        <input type="text" id="username" placeholder="Имя пользователя" required>
+        <input type="password" id="password" placeholder="Пароль" required>
+        <button type="submit">Войти</button>
+    </form>
+</section>
+
+<!-- Секция регистрации-->
+<!--<section id="register-section">-->
+<!--    <h2>Регистрация</h2>-->
+<!--    <form id="register-form">-->
+<!--        <input type="text" id="register-username" placeholder="Имя пользователя" required>-->
+<!--        <input type="password" id="register-password" placeholder="Пароль" required>-->
+<!--        <button type="submit">Зарегистрироваться</button>-->
+<!--    </form>-->
+<!--</section>-->
+
+<!-- Секция добавления проекта -->
+<section id="add-project-section"">
+    <h2>Добавить проект</h2>
+    <form id="add-project-form">
+        <input type="text" id="project-name" placeholder="Название проекта" required>
+        <textarea id="project-description" placeholder="Описание проекта" required></textarea>
+        <input type="text" id="project-github-link" placeholder="Ссылка на GitHub" required>
+        <input type="file" id="project-image" accept="image/*" required>
+        <button type="submit">Добавить проект</button>
+    </form>
+</section>
     <script src="/static/js/scripts.js"></script>
 </body>
 </html>

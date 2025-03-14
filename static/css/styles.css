@@ -6,72 +6,325 @@ body {
     background: linear-gradient(135deg, #f4f4f9, #e0e0f8);
     min-height: 100vh;
     color: #333;
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
+/* Шапка */
 header {
     background-color: #6200ea;
     color: white;
     padding: 20px 0;
     text-align: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.profile-photo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 3px solid white;
+    object-fit: cover;
+    animation: fadeIn 1s ease-out;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.profile-photo:hover {
+    transform: scale(1.5);
 }
 
 h1 {
     margin: 0;
     font-size: 2.5rem;
+    animation: slideIn 0.8s ease-out;
 }
 
+/* Стили для формы редактирования проектов */
+.project-edit {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.project-edit h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #6200ea;
+}
+
+.project-edit form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.project-edit input,
+.project-edit textarea {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.project-edit input:focus,
+.project-edit textarea:focus {
+    border-color: #6200ea;
+    outline: none;
+}
+
+.project-edit button {
+    padding: 10px;
+    background-color: #6200ea;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.project-edit button:hover {
+    background-color: #3700b3;
+    transform: translateY(-2px);
+}
+
+.project-edit button:active {
+    transform: scale(0.95);
+}
+
+/* Стили для секций авторизации, регистрации и добавления проекта */
+#login-section, #register-section, #add-project-section {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+#login-section h2, #register-section h2, #add-project-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #6200ea;
+}
+
+#login-form, #register-form, #add-project-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#login-form input, #register-form input, #add-project-form input,
+#login-form textarea, #register-form textarea, #add-project-form textarea {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+#login-form input:focus, #register-form input:focus, #add-project-form input:focus,
+#login-form textarea:focus, #register-form textarea:focus, #add-project-form textarea:focus {
+    border-color: #6200ea;
+    outline: none;
+}
+
+#login-form button, #register-form button, #add-project-form button {
+    padding: 10px;
+    background-color: #6200ea;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#login-form button:hover, #register-form button:hover, #add-project-form button:hover {
+    background-color: #3700b3;
+    transform: translateY(-2px);
+}
+
+#login-form button:active, #register-form button:active, #add-project-form button:active {
+    transform: scale(0.95);
+}
+
+/* Тёмная тема для секций */
+body.dark-theme #login-section,
+body.dark-theme #register-section,
+body.dark-theme #add-project-section {
+    background-color: #2c2c2c;
+    color: #ffffff;
+}
+
+body.dark-theme #login-form input,
+body.dark-theme #register-form input,
+body.dark-theme #add-project-form input,
+body.dark-theme #login-form textarea,
+body.dark-theme #register-form textarea,
+body.dark-theme #add-project-form textarea {
+    background-color: #1e1e1e;
+    color: #ffffff;
+    border-color: #444;
+}
+
+body.dark-theme #login-form input:focus,
+body.dark-theme #register-form input:focus,
+body.dark-theme #add-project-form input:focus,
+body.dark-theme #login-form textarea:focus,
+body.dark-theme #register-form textarea:focus,
+body.dark-theme #add-project-form textarea:focus {
+    border-color: #bb86fc;
+}
+
+
+/* Анимации для текста */
+section p {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+section p:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+section p:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+section p:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+section p:nth-child(4) {
+    animation-delay: 0.8s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Тёмная тема для формы редактирования */
+body.dark-theme .project-edit {
+    background-color: #2c2c2c;
+    color: #ffffff;
+}
+
+body.dark-theme .project-edit input,
+body.dark-theme .project-edit textarea {
+    background-color: #1e1e1e;
+    color: #ffffff;
+    border-color: #444;
+}
+
+body.dark-theme .project-edit input:focus,
+body.dark-theme .project-edit textarea:focus {
+    border-color: #bb86fc;
+}
+
+/* Анимации для форм */
+#login-section, #register-section, #add-project-section, .project-edit {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Переключатель темы */
+.theme-switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    margin-left: 20px;
+}
+
+.theme-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #6200ea;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+/* Секции */
 section {
     padding: 20px;
     max-width: 1200px;
     margin: 0 auto;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
 h2 {
     font-size: 2rem;
     margin-bottom: 20px;
     color: #6200ea;
+    animation: slideIn 0.8s ease-out;
 }
 
-/* Стили для формы */
-form {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-}
-
-input, textarea, button {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 1rem;
-    box-sizing: border-box; /* Убедимся, что padding не увеличивает размер */
-}
-
-button {
-    background-color: #6200ea;
-    color: white;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    font-size: 0.9rem;
-    padding: 8px 12px; /* Уменьшим padding */
-}
-
-button:hover {
-    background-color: #3700b3;
-    transform: translateY(-2px);
-}
-
-button:active {
-    transform: translateY(0);
-}
-
-/* Стили для списка проектов */
+/* Список проектов */
 #projects-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -100,6 +353,12 @@ button:active {
     width: 100%;
     height: 200px;
     object-fit: cover;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+#projects-list img:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1);
 }
 
 #projects-list h3 {
@@ -119,14 +378,16 @@ button:active {
     color: #6200ea;
     text-decoration: none;
     font-weight: bold;
+    transition: color 0.3s ease;
 }
 
 #projects-list a:hover {
+    color: #3700b3;
     text-decoration: underline;
 }
 
 #projects-list button {
-    margin: 0 10px 10px;
+    margin: 10px;
     padding: 8px 12px;
     font-size: 0.9rem;
     background-color: #6200ea;
@@ -134,18 +395,47 @@ button:active {
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    width: calc(100% - 20px);
+    box-sizing: border-box;
 }
 
 #projects-list button:hover {
     background-color: #3700b3;
+    transform: translateY(-2px);
 }
 
 #projects-list button:active {
     transform: scale(0.95);
 }
 
-/* Стили для секции "Обо мне" */
+/* Секция контактов */
+#contacts-section {
+    margin-top: 40px;
+}
+
+#contacts-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+#contacts-list li {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+#contacts-list a {
+    color: #6200ea;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+#contacts-list a:hover {
+    color: #3700b3;
+    text-decoration: underline;
+}
+
+/* Секция "Обо мне" */
 .skills {
     background: white;
     padding: 20px;
@@ -184,6 +474,66 @@ button:active {
     color: white;
 }
 
+/* Тёмная тема */
+body.dark-theme {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+body.dark-theme header {
+    background-color: #1e1e1e;
+}
+
+body.dark-theme section {
+    background-color: #1e1e1e;
+    color: #ffffff;
+}
+
+body.dark-theme #projects-list li {
+    background-color: #2c2c2c;
+    color: #ffffff;
+}
+
+body.dark-theme #projects-list a {
+    color: #bb86fc;
+}
+
+body.dark-theme #projects-list button {
+    background-color: #bb86fc;
+    color: #000000;
+}
+
+body.dark-theme #projects-list button:hover {
+    background-color: #3700b3;
+}
+
+body.dark-theme #contacts-list a {
+    color: #bb86fc;
+}
+
+body.dark-theme #contacts-list a:hover {
+    color: #3700b3;
+}
+
+body.dark-theme .profile-photo {
+    border-color: #bb86fc;
+}
+
+body.dark-theme .skills {
+    background-color: #2c2c2c;
+    color: #ffffff;
+}
+
+body.dark-theme .skills li {
+    background-color: #1e1e1e;
+    color: #ffffff;
+}
+
+body.dark-theme .skills li:hover {
+    background-color: #6200ea;
+    color: white;
+}
+
 /* Анимации */
 @keyframes slideIn {
     from {
@@ -207,25 +557,52 @@ button:active {
     }
 }
 
-h1, h2, h3 {
-    animation: slideIn 0.8s ease-out;
-}
-
-* {
-    transition: all 0.3s ease;
-}
-
 /* Адаптивный дизайн */
 @media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .profile-photo {
+        width: 80px;
+        height: 80px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
     #projects-list {
         grid-template-columns: 1fr;
+    }
+
+    #projects-list button {
+        font-size: 0.9rem;
     }
 
     .skills ul {
         grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
     }
+}
 
-    input, textarea, button {
-        font-size: 0.9rem; /* Уменьшим размер шрифта на мобильных устройствах */
+@media (max-width: 768px) {
+    #login-section, #register-section, #add-project-section, .project-edit {
+        padding: 15px;
+    }
+
+    #login-form, #register-form, #add-project-form, .project-edit form {
+        gap: 10px;
+    }
+
+    #login-form input, #register-form input, #add-project-form input,
+    #login-form textarea, #register-form textarea, #add-project-form textarea,
+    .project-edit input, .project-edit textarea {
+        font-size: 0.9rem;
+    }
+
+    #login-form button, #register-form button, #add-project-form button,
+    .project-edit button {
+        font-size: 0.9rem;
     }
 }
