@@ -128,7 +128,8 @@ document.addEventListener("DOMContentLoaded", function () {
             if (!response.ok) {
                 throw new Error(`Ошибка HTTP: ${response.status}`);
             }
-            const projects = await response.json();
+            const projects_ = await response.json();
+            const projects = projects_.reverse();
             console.log("Загруженные проекты:", projects);
 
             projectsList.innerHTML = "";
@@ -345,4 +346,41 @@ document.addEventListener("DOMContentLoaded", function () {
         skillsList.innerHTML = newSkillsText.split('\n').map(skill => `<li>${skill}</li>`).join('');
         hideEditSkillsForm();
     };
+});
+
+function getRandomColor() {
+    const colors = ['#00fffc', '#ff00cc', '#ffcc00', '#00ff00', '#ff0000'];
+    return colors[Math.floor(Math.random() * colors.length)];
+}
+
+function createFireworks() {
+    const container = document.getElementById('fireworks-container');
+    const particleCount = 100;
+
+    for (let i = 0; i < particleCount; i++) {
+        const firework = document.createElement('div');
+        firework.classList.add('firework');
+
+        const x = Math.random() * window.innerWidth;
+        const y = Math.random() * window.innerHeight;
+        firework.style.left = `${x}px`;
+        firework.style.top = `${y}px`;
+
+        firework.style.backgroundColor = getRandomColor();
+        firework.style.boxShadow = `0 0 5px ${getRandomColor()}, 0 0 10px ${getRandomColor()}, 0 0 20px ${getRandomColor()}`;
+
+        container.appendChild(firework);
+
+        firework.addEventListener('animationend', () => {
+            firework.remove();
+        });
+    }
+}
+
+window.addEventListener('load', () => {
+    createFireworks();
+});
+
+document.addEventListener('click', () => {
+    createFireworks();
 });
